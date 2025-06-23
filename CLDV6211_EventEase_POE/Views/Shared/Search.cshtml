@@ -1,0 +1,29 @@
+﻿
+<form asp-action="Search" method="get" class="form-inline">
+    <select name="eventTypeId" class="form-control">
+        <option value="">All Types</option>
+        @foreach (var type in ViewBag.EventTypes as List<EventType>)
+        {
+            <option value="@type.EventTypeId">@type.Name</option>
+        }
+    </select>
+
+    <input type="date" name="startDate" class="form-control" />
+    <input type="date" name="endDate" class="form-control" />
+
+    <input type="checkbox" name="onlyAvailable" /> Only Available
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<table class="table mt-3">
+    @foreach (var evt in Model)
+    {
+        <tr>
+            <td>@evt.Name</td>
+            <td>@evt.EventDate.ToShortDateString()</td>
+            <td>@evt.EventType.Name</td>
+            <td>@evt.Venue.Name</td>
+        </tr>
+    }
+</table>

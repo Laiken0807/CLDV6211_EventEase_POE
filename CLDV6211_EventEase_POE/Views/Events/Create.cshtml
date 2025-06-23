@@ -1,0 +1,54 @@
+﻿@model CLDV6211_EventEase_POE.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<h2>Create Event</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="eventName" class="control-label"></label>
+        <input asp-for="eventName" class="form-control" />
+        <span asp-validation-for="eventName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="eventDate" class="control-label"></label>
+        <input asp-for="eventDate" class="form-control" />
+        <span asp-validation-for="eventDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="eventTime" class="control-label"></label>
+        <input asp-for="eventTime" class="form-control" />
+        <span asp-validation-for="eventTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="description" class="control-label"></label>
+        <textarea asp-for="description" class="form-control"></textarea>
+        <span asp-validation-for="description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VenueId" class="control-label"></label>
+        <select asp-for="VenueId" class="form-control" asp-items="ViewBag.VenueId"></select>
+        <span asp-validation-for="VenueId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EventTypeId" class="control-label"></label>
+        <select asp-for="EventTypeId" class="form-control" asp-items="ViewBag.EventTypeId"></select>
+        <span asp-validation-for="EventTypeId" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

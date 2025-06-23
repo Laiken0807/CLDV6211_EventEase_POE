@@ -1,0 +1,53 @@
+﻿@model CLDV6211_EventEase_POE.Models.Venue
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Venue</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="venueName" class="control-label"></label>
+                <input asp-for="venueName" class="form-control" />
+                <span asp-validation-for="venueName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label"></label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="capacity" class="control-label"></label>
+                <input asp-for="capacity" class="form-control" />
+                <span asp-validation-for="capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VenueDate" class="control-label"></label>
+                <input asp-for="VenueDate" class="form-control" />
+                <span asp-validation-for="VenueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VenueTime" class="control-label"></label>
+                <input asp-for="VenueTime" class="form-control" />
+                <span asp-validation-for="VenueTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
